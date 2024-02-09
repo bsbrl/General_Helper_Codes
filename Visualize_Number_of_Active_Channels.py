@@ -60,7 +60,7 @@ mouse_1481_channels = [62, 62, 62, 58]
 mouse_1481_days = [14, 21, 29, 35]
 
 # Plotting the data
-plt.figure(figsize=(5, 3), dpi=300)
+plt.figure(figsize=(7, 3), dpi=300)
 
 plt.plot(mouse_1423_days, mouse_1423_channels, marker='o', label='Mouse 1423')
 plt.plot(mouse_1479_days, mouse_1479_channels, marker='s', label='Mouse 1479')
