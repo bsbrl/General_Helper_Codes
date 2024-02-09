@@ -1,8 +1,45 @@
 # -*- coding: utf-8 -*-
-"""
-Spyder Editor
 
-This is a temporary script file.
+"""
+Title: Date Difference Calculator
+
+Description:
+    This Python script calculates the number of days between a series of dates
+    and the first date listed. It is designed to help users quickly understand
+    the time intervals between key dates in a project or event timeline. The
+    script takes a list of dates in MM/DD/YYYY format and outputs the number
+    of days each date is from the first date on the list.
+
+Usage:
+    Ensure you have Python installed on your system.
+    The script can be run from the command line or integrated into larger Python projects.
+    Modify the 'dates' list variable with your specific dates before running.
+
+Requirements:
+    Python 3.x
+    No external libraries are required for the basic functionality.
+
+Author: 
+    Ibrahim Oladepo
+
+Contributors:
+    ChatGPT - OpenAI's language model was consulted for assistance with code logic
+    and documentation.
+
+License:
+    **
+
+Example:
+    To run the script, ensure the 'dates' list contains your dates in the correct format.
+    Run the script using a Python interpreter:
+    $ python date_difference_calculator.py
+
+    Output will be displayed in the terminal or command prompt.
+
+Notes:
+    This script is for educational and practical purposes. It can be modified
+    or expanded based on user requirements. For more complex date manipulations,
+    consider using libraries like pandas or numpy.
 """
 
 from datetime import datetime
