@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 import matplotlib
 from sklearn import metrics
 import numpy as np
+from datetime import date
 
 
 # Say, "the default sans-serif font is COMIC SANS"
@@ -90,8 +91,11 @@ frames_inferenced = []
 
 # Thresholds
 accuracy_threshold = 95   # 95
-x_threshold = 10      # 10
-y_threshold = 10      # 10
+multiplier = 0.25
+x_threshold = video.shape[2] * multiplier
+y_threshold = video.shape[1] * multiplier
+# x_threshold = 10      # 10
+# y_threshold = 10      # 10
 
 # Global time variable
 start_time = 0
@@ -99,6 +103,10 @@ end_time = 0
 inference_time = []
 
 ###########################################################################
+
+# Warm up SLEAP inference before loop
+# Get inference from an image frame
+prediction = predictor.inference_model.predict(video[0], numpy=True)
 
 # Loop through frames in csv
 for i in range(manual_data.shape[0]):
@@ -222,4 +230,37 @@ print("Inference times: ", inference_time)
 
 ###########################################################################
 
+# Combine the head and tail data into a list
+ht = [['True Positive', 'True Negative', 'False Positive', 'False Negative', 'Invalid'],
+      [tp_head, tn_head, fp_head, fn_head, invalid_head],
+      [tp_tail, tn_tail, fp_tail, fn_tail, invalid_tail]]
+
+# Convert the list to dataframe
+df_ht = pd.DataFrame(ht).transpose()
+
+# Set column titles
+columns = ['Class', 'Head', 'Tail']
+df_ht.columns = columns
+
+# Inference time
+df_it = pd.DataFrame(inference_time)
+df_it.columns = ['Inference Time (seconds)']
+
+# Evaluation information
+eval_params = [['x-threshold', 'y-threshold', 'accuracy threshold'],
+          [x_threshold, y_threshold, accuracy_threshold]]
+df_eval_params = pd.DataFrame(eval_params).transpose()
+
+# date object of today's date
+today = date.today() 
+
+# Save data to csv on disk
+ht_filename = MComp + "\Data\EVAL_" + model_name + "_htcm_" + str(today) + ".csv"
+df_ht.to_csv(ht_filename)
+
+it_filename = MComp + "\Data\EVAL_" + model_name + "_it_" + str(today) + ".csv"
+df_it.to_csv(it_filename)
+
+eval_params_filename = MComp + "\Data\EVAL_" + model_name + "_params_" + str(today) + ".csv"
+df_eval_params.to_csv(eval_params_filename)
 
