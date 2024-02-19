@@ -331,18 +331,19 @@ GT_BM_Data = pd.read_csv(GT_BM, header=None)
 GT_OF_Data = pd.read_csv(GT_OF, header=None)
 
 # DLC Exported Models
-# model_path = MComp + "\Exported_Models\DLC_APA_mobilenet"
-model_path = MComp + "\Exported_Models\DLC_APA_resnet"
+# model_path = MComp + "\Exported_Models\DLC_OF_mobilenet"
+model_path = MComp + "\Exported_Models\DLC_OF_resnet"
 
 # Behavior videos
-# video_topose = MComp + "\Videos\Open_Field.avi"
-video_topose = MComp + "\Videos\APA.mp4"
+video_topose = MComp + "\Videos\Open_Field.avi"
+# video_topose = MComp + "\Videos\APA.mp4"
+# video_topose = MComp + "\Videos\Barnes_Maze.mp4"
 
-# model_name = "DLC_MOBILENET-APA"
-model_name = "DLC_RESNET-APA"
+# model_name = "DLC_MOBILENET-OF"
+model_name = "DLC_RESNET-OF"
 
 # Define manual data path
-manual_data_path = GT_APA
+manual_data_path = GT_OF
 
 ###########################################################################
 
