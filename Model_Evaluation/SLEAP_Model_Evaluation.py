@@ -43,25 +43,25 @@ GT_BM_Data = pd.read_csv(GT_BM, header=None)
 GT_OF_Data = pd.read_csv(GT_OF, header=None)
 
 # SLEAP Exported Models
-SLEAP_APA = MComp + "\Exported_Models\SLEAP_APA_240213.zip"
+# SLEAP_APA = MComp + "\Exported_Models\SLEAP_APA_240213.zip"
 # SLEAP_BM = MComp + "\Exported_Models\SLEAP_BM_240213.zip"
-# SLEAP_OF = MComp + "\Exported_Models\SLEAP_OF_240214.zip"
+SLEAP_OF = MComp + "\Exported_Models\SLEAP_OF_240214.zip"
 
 # Behavior videos
-APA_Video = sleap.load_video(MComp + "\Videos\APA.mp4")
+# APA_Video = sleap.load_video(MComp + "\Videos\APA.mp4")
 # BM_Video = sleap.load_video(MComp + "\Videos\Barnes_Maze.mp4")
-# OF_Video = sleap.load_video(MComp + "\Videos\Open_Field.avi")
+OF_Video = sleap.load_video(MComp + "\Videos\Open_Field.avi")
 
 ###########################################################################
 
-model_name = "SLEAP-APA"
+model_name = "SLEAP-OF"
 
 # Run through each bevaior one at a time
-manual_data = GT_APA_Data
-video = APA_Video
+manual_data = GT_OF_Data
+video = OF_Video
 
 # Initialize the sleap model and video file
-predictor = sleap.load_model(SLEAP_APA, batch_size=16)
+predictor = sleap.load_model(SLEAP_OF, batch_size=16)
 
 # Counter variable to keep track of frame count
 counter = 0
